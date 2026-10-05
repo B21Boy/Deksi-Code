@@ -6,7 +6,7 @@ Personal portfolio built with **React 19 + Vite 8**. Fast to load, hardened with
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
+npm run dev        # starts Vite and opens http://localhost:5173 in your browser
 npm run build      # production build in dist/
 npm run preview    # serve the production build locally
 npm run lint       # ESLint

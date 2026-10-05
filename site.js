@@ -9,7 +9,7 @@ export const site = {
   title: 'Deksiyos Yismaw | Flutter and Full-Stack Developer',
   description:
     'Portfolio of Deksiyos Yismaw, an Information Technology graduate building Flutter apps and full-stack web products with React, Node.js and Firebase.',
-  email: 'deksiman721@gmail.com',
+  email: 'deksiyos.yismaw@gmail.com',
   upworkUrl: 'https://www.upwork.com',
   location: 'Bahir Dar - Ethiopia',
   age: 22,

@@ -36,6 +36,7 @@
   border-radius: 22px;
   background: linear-gradient(155deg, #fff, #f0f1fa 80%);
   box-shadow: 0 2px 6px rgba(24, 30, 58, 0.1), inset 0 1px 0 #fff;
+  animation: badgeFloat 7s ease-in-out 700ms infinite;
   transition: transform 240ms ease, box-shadow 240ms ease;
 }
 
@@ -93,19 +94,43 @@
 }
 
 .about-badge-photo {
+  position: relative;
   overflow: hidden;
-  aspect-ratio: 1 / 0.94;
+  aspect-ratio: 2 / 3;
   border: 1px solid rgba(28, 36, 68, 0.08);
   border-radius: 14px;
-  background: #dfe4ef;
+  background: #101116;
+  perspective: 1000px;
 }
 
-.about-badge-photo img {
+.about-badge-photo-rotator,
+.about-badge-photo-face {
+  position: absolute;
+  inset: 0;
+}
+
+.about-badge-photo-rotator {
+  transform-style: preserve-3d;
+  animation: badgePhotoFlip 12s ease-in-out infinite;
+}
+
+.about-badge-photo-face {
+  overflow: hidden;
+  border-radius: inherit;
+  backface-visibility: hidden;
+}
+
+.about-badge-photo-face img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 36%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.about-badge-photo-back {
+  transform: rotateY(180deg);
+  background: #dfe4ef;
 }
 
 .about-badge-details {
@@ -243,9 +268,22 @@
   50% { transform: translateX(-50%) rotate(2deg); }
 }
 
+@keyframes badgeFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+
+@keyframes badgePhotoFlip {
+  0%, 35% { transform: rotateY(0deg); }
+  50%, 85% { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .about-profile-badge,
-  .about-badge-lanyard {
+  .about-badge-lanyard,
+  .about-badge-card,
+  .about-badge-photo-rotator {
     animation: none;
   }
 

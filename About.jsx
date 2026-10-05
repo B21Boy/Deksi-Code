@@ -1,4 +1,5 @@
 import aboutPortrait from './about-portrait.webp'
+import deksiPortrait from './Deksi.png'
 import { site } from './site.js'
 import { useSectionCompanion } from './useSectionCompanion.js'
 import SocialLinks from './SocialLinks.jsx'
@@ -37,14 +38,31 @@ export default function About() {
                 <span>DEVELOPER PROFILE</span>
                 <span className="about-badge-status"><i /> Portfolio</span>
               </div>
-              <div className="about-badge-photo">
-                <img
-                  src={aboutPortrait}
-                  alt={`Portrait of ${site.name}`}
-                  width="640"
-                  height="640"
-                  loading="lazy"
-                />
+              <div
+                className="about-badge-photo"
+                role="img"
+                aria-label={`Portraits of ${site.name}: a professional headshot and a full-length photo at his computer`}
+              >
+                <div className="about-badge-photo-rotator" aria-hidden="true">
+                  <div className="about-badge-photo-face about-badge-photo-front">
+                    <img
+                      src={deksiPortrait}
+                      alt=""
+                      width="1024"
+                      height="1536"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="about-badge-photo-face about-badge-photo-back">
+                    <img
+                      src={aboutPortrait}
+                      alt=""
+                      width="640"
+                      height="640"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
               </div>
               <div className="about-badge-details">
                 <p className="about-badge-name">{site.name}</p>
