@@ -1,4 +1,4 @@
-import { useSectionCompanion } from '../../hooks/useSectionCompanion.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
 
 export default function Hero() {
   const sectionRef = useSectionCompanion('neutral')
@@ -19,6 +19,7 @@ export default function Hero() {
           Say Hi <span aria-hidden="true">👋</span>
         </a>
       </div>
+
     </div>
   )
 }

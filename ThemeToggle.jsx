@@ -1,4 +1,4 @@
-import { useCompanion } from '../../context/CompanionContext.jsx'
+import { useCompanion } from './useCompanion.js'
 
 export default function ThemeToggle({ theme, onToggle, className = '' }) {
   const isLight = theme === 'light'

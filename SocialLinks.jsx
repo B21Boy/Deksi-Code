@@ -1,4 +1,4 @@
-import { socialLinks } from '../../data/socials.js'
+import { socialLinks } from './socials.js'
 import SocialIcon from './SocialIcon.jsx'
 
 export default function SocialLinks({ className, label }) {

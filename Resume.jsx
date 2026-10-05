@@ -1,5 +1,5 @@
-import { resumeGroups } from '../../data/resume.js'
-import { useSectionCompanion } from '../../hooks/useSectionCompanion.js'
+import { resumeGroups } from './resume.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
 
 function ResumeGroup({ group }) {
   return (

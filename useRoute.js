@@ -23,11 +23,15 @@ export function useRoute() {
   }, [])
 
   const navigate = useCallback((path) => {
-    if (window.location.pathname !== path) {
-      window.history.pushState(null, '', path)
+    const destination = new URL(path, window.location.href)
+    const nextPath = `${destination.pathname}${destination.search}${destination.hash}`
+    const currentPath = `${window.location.pathname}${window.location.search}${window.location.hash}`
+
+    if (currentPath !== nextPath) {
+      window.history.pushState(null, '', nextPath)
     }
 
-    setRoute(getRoute(path))
+    setRoute(getRoute(destination.pathname))
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 

@@ -26,6 +26,20 @@
   animation: galleryFade 240ms ease both;
 }
 
+.gallery-phone.gallery-desktop-frame {
+  width: min(100%, 82svh);
+  height: auto;
+  max-height: 68svh;
+  aspect-ratio: var(--gallery-aspect-ratio, 1.15 / 1);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.gallery-phone.gallery-desktop-frame img {
+  border-radius: 9px;
+  object-fit: contain;
+}
+
 .gallery-info {
   display: grid;
   justify-items: start;
@@ -157,6 +171,12 @@
 
   .gallery-phone {
     height: min(46svh, 420px);
+  }
+
+  .gallery-phone.gallery-desktop-frame {
+    width: min(100%, calc(46svh * 2.8));
+    height: auto;
+    max-height: 46svh;
   }
 
   .gallery-info {

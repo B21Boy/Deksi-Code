@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { pages, site } from '../data/site.js'
+import { pages, site } from './site.js'
 
 function setAttribute(selector, attribute, value) {
   document.head.querySelector(selector)?.setAttribute(attribute, value)

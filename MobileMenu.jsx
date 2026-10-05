@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import aboutPortrait from '../../assets/images/about-portrait.webp'
-import { getNavHref, navItems } from '../../data/navigation.js'
-import { site } from '../../data/site.js'
-import SocialLinks from '../ui/SocialLinks.jsx'
+import aboutPortrait from './about-portrait.webp'
+import { getNavHref, navItems } from './navigation.js'
+import { site } from './site.js'
+import SocialLinks from './SocialLinks.jsx'
 
 export default function MobileMenu({ nav, onClose }) {
   useEffect(() => {

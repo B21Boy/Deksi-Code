@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
-import { useModal } from '../../hooks/useModal.js'
+import { useModal } from './useModal.js'
 
 export default function ProjectGallery({ project, onClose }) {
   const { screens } = project
@@ -47,7 +47,10 @@ export default function ProjectGallery({ project, onClose }) {
           }}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="phone-frame gallery-phone">
+          <div
+            className={`phone-frame gallery-phone${screen.isDesktop ? ' gallery-desktop-frame' : ''}`}
+            style={screen.aspectRatio ? { '--gallery-aspect-ratio': screen.aspectRatio } : undefined}
+          >
             <img key={index} src={screen.src} alt={screen.alt} />
           </div>
         </div>

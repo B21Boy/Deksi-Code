@@ -1,5 +1,5 @@
-import { languageCards } from '../../data/languages.js'
-import { useSectionCompanion } from '../../hooks/useSectionCompanion.js'
+import { languageCards } from './languages.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
 
 export default function Languages() {
   const sectionRef = useSectionCompanion('attentive')

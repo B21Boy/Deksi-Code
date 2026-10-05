@@ -1,17 +1,28 @@
 import { useCallback, useState } from 'react'
-import ContactActions from '../components/layout/ContactActions.jsx'
-import PageNav from '../components/layout/PageNav.jsx'
-import ProjectGallery from '../components/projects/ProjectGallery.jsx'
-import ProjectNotice from '../components/projects/ProjectNotice.jsx'
-import ProjectShowcaseCard from '../components/projects/ProjectShowcaseCard.jsx'
-import SocialLinks from '../components/ui/SocialLinks.jsx'
-import { showcaseProjects } from '../data/projects.js'
-import { currentYear } from '../data/site.js'
-import { useSectionCompanion } from '../hooks/useSectionCompanion.js'
+import ContactActions from './ContactActions.jsx'
+import PageNav from './PageNav.jsx'
+import ProjectGallery from './ProjectGallery.jsx'
+import ProjectNotice from './ProjectNotice.jsx'
+import ProjectShowcaseCard from './ProjectShowcaseCard.jsx'
+import SocialLinks from './SocialLinks.jsx'
+import { showcaseProjects } from './projects.js'
+import { currentYear } from './site.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
 
 export default function ProjectsPage({ theme, onToggleTheme, nav }) {
-  const [activeProject, setActiveProject] = useState(null)
-  const closeProject = useCallback(() => setActiveProject(null), [])
+  const [activeProject, setActiveProject] = useState(() => {
+    const slug = new URLSearchParams(window.location.search).get('project')
+    return showcaseProjects.find((project) => project.slug === slug) || null
+  })
+  const [showProjectScreens, setShowProjectScreens] = useState(false)
+  const openProject = useCallback((project) => {
+    setActiveProject(project)
+    setShowProjectScreens(false)
+  }, [])
+  const closeProject = useCallback(() => {
+    setActiveProject(null)
+    setShowProjectScreens(false)
+  }, [])
   const sectionRef = useSectionCompanion('proud')
 
   return (
@@ -38,14 +49,20 @@ export default function ProjectsPage({ theme, onToggleTheme, nav }) {
         {showcaseProjects.map((project) => (
           <ProjectShowcaseCard
             project={project}
-            onOpen={setActiveProject}
+            onOpen={openProject}
             key={project.title}
           />
         ))}
       </section>
 
       {activeProject &&
-        (activeProject.screens ? (
+        (activeProject.notice && !showProjectScreens ? (
+          <ProjectNotice
+            project={activeProject}
+            onClose={closeProject}
+            onBrowseScreens={activeProject.screens ? () => setShowProjectScreens(true) : undefined}
+          />
+        ) : activeProject.screens ? (
           <ProjectGallery project={activeProject} onClose={closeProject} />
         ) : (
           <ProjectNotice project={activeProject} onClose={closeProject} />

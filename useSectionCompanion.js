@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useCompanion } from '../context/CompanionContext.jsx'
+import { useCompanion } from './useCompanion.js'
 
 const END_TOLERANCE_PX = 4
 

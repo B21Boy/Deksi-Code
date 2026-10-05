@@ -1,7 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { sectionOrder, states } from '../companion/deksiyosStates.js'
-
-const CompanionContext = createContext(null)
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { sectionOrder, states } from './deksiyosStates.js'
+import { CompanionContext } from './companion-context.js'
 
 const DISMISS_KEY = 'companion-dismissed'
 const REACTION_MS = 1400
@@ -121,23 +120,3 @@ export function CompanionProvider({ children }) {
   return <CompanionContext.Provider value={value}>{children}</CompanionContext.Provider>
 }
 
-export function useCompanion() {
-  const ctx = useContext(CompanionContext)
-  // Sections can render outside the provider in isolation (tests, Storybook-style
-  // previews); fall back to inert no-ops rather than crashing.
-  if (!ctx) {
-    return {
-      pose: states.neutral,
-      stateId: 'neutral',
-      pulse: 0,
-      blink: false,
-      dismissed: true,
-      updateSection: () => {},
-      pinSection: () => {},
-      reactTo: () => {},
-      wink: () => {},
-      toggleDismissed: () => {},
-    }
-  }
-  return ctx
-}

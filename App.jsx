@@ -1,11 +1,11 @@
 import { Suspense, useEffect } from 'react'
-import CompanionWidget from './components/companion/CompanionWidget.jsx'
-import { CompanionProvider } from './context/CompanionContext.jsx'
-import { useRoute } from './hooks/useRoute.js'
-import { usePageMeta } from './hooks/usePageMeta.js'
-import { useSiteNavigation } from './hooks/useSiteNavigation.js'
-import { useTheme } from './hooks/useTheme.js'
-import HomePage from './pages/HomePage.jsx'
+import CompanionWidget from './CompanionWidget.jsx'
+import { CompanionProvider } from './CompanionContext.jsx'
+import { useRoute } from './useRoute.js'
+import { usePageMeta } from './usePageMeta.js'
+import { useSiteNavigation } from './useSiteNavigation.js'
+import { useTheme } from './useTheme.js'
+import HomePage from './HomePage.jsx'
 import { loadProcessPage, loadProjectsPage, ProcessPage, ProjectsPage } from './routes.js'
 
 export default function App() {

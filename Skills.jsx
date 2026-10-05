@@ -1,6 +1,6 @@
-import { processSteps } from '../../data/process.js'
-import { useSectionCompanion } from '../../hooks/useSectionCompanion.js'
-import { skillCards } from '../../data/skills.js'
+import { processSteps } from './process.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
+import { skillCards } from './skills.js'
 
 function SkillCard({ skill }) {
   return (

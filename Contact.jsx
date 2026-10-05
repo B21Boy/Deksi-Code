@@ -1,7 +1,7 @@
-import { currentYear } from '../../data/site.js'
-import { useSectionCompanion } from '../../hooks/useSectionCompanion.js'
-import ContactActions from '../layout/ContactActions.jsx'
-import SocialLinks from '../ui/SocialLinks.jsx'
+import { currentYear } from './site.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
+import ContactActions from './ContactActions.jsx'
+import SocialLinks from './SocialLinks.jsx'
 
 export default function Contact() {
   const sectionRef = useSectionCompanion('determined', { pinAtPageEnd: true })

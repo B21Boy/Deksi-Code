@@ -1,4 +1,4 @@
-/* About Me section and profile visual */
+/* About Me section and animated developer profile badge */
 
 .visual-wrap {
   display: flex;
@@ -6,34 +6,149 @@
   align-self: center;
 }
 
-.profile-orbit {
+.about-profile-badge {
   position: relative;
+  width: clamp(230px, 24vw, 320px);
+  padding-top: 22px;
+  transform-origin: top center;
+  animation: badgeReveal 700ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.about-badge-lanyard {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 74px;
+  height: 58px;
+  border: 8px solid #6979e8;
+  border-bottom: 0;
+  border-radius: 40px 40px 0 0;
+  transform: translateX(-50%);
+  transform-origin: top center;
+  animation: badgeSway 5s ease-in-out infinite;
+}
+
+.about-badge-card {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 22px;
+  background: linear-gradient(155deg, #fff, #f0f1fa 80%);
+  box-shadow: 0 2px 6px rgba(24, 30, 58, 0.1), inset 0 1px 0 #fff;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.about-profile-badge:hover .about-badge-card {
+  transform: translateY(-5px) rotate(-1deg);
+  box-shadow: 0 18px 42px rgba(24, 30, 58, 0.19), inset 0 1px 0 #fff;
+}
+
+.about-badge-heading,
+.about-badge-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-badge-heading {
+  min-height: 30px;
+  margin-bottom: 11px;
+  color: #69718c;
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.about-badge-mark {
   display: grid;
   place-items: center;
-  width: clamp(230px, 24vw, 330px);
-  aspect-ratio: 1;
-  border: 1px solid var(--border);
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, #526ff2, #a455e8);
+  font-size: 0.66rem;
+  letter-spacing: 0;
+}
+
+.about-badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 7px;
+  border: 1px solid rgba(48, 139, 105, 0.16);
   border-radius: 999px;
-  background: var(--profile-bg);
-  box-shadow: var(--profile-shadow);
+  color: #2f795e;
+  background: #e7f5ed;
+  font-size: 0.58rem;
+  letter-spacing: 0;
+}
+
+.about-badge-status i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #41a779;
+}
+
+.about-badge-photo {
   overflow: hidden;
-  animation: floatProfile 6s ease-in-out infinite;
+  aspect-ratio: 1 / 0.94;
+  border: 1px solid rgba(28, 36, 68, 0.08);
+  border-radius: 14px;
+  background: #dfe4ef;
 }
 
-.profile-orbit::before {
-  position: absolute;
-  inset: 13%;
-  content: "";
-  border: 1px solid var(--border);
-  border-radius: inherit;
+.about-badge-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 36%;
 }
 
-.profile-orbit img {
-  width: 74%;
-  max-width: 300px;
-  filter: grayscale(1) contrast(1.08) brightness(0.92);
-  opacity: 0.94;
-  transform: translateY(8px);
+.about-badge-details {
+  padding: 15px 3px 12px;
+}
+
+.about-badge-name {
+  margin: 0;
+  color: #20263d;
+  font-size: 1.05rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.about-badge-role,
+.about-badge-location {
+  margin: 4px 0 0;
+  color: #68718a;
+  font-size: 0.73rem;
+  line-height: 1.45;
+}
+
+.about-badge-location {
+  margin-top: 7px;
+  color: #858ba0;
+  font-size: 0.67rem;
+}
+
+.about-badge-footer {
+  min-height: 25px;
+  border-top: 1px solid rgba(39, 48, 83, 0.1);
+  padding: 9px 3px 0;
+  color: #969bae;
+  font-size: 0.53rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.about-badge-code {
+  width: 76px;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, #69718c 0 2px, transparent 2px 4px, #69718c 4px 5px, transparent 5px 8px);
+  opacity: 0.7;
 }
 
 .about-section {
@@ -118,27 +233,23 @@
   transform: translateY(-3px);
 }
 
-@keyframes floatProfile {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: translate3d(0, -12px, 0);
-  }
+@keyframes badgeReveal {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ---------- Portrait photo (About Me + mobile menu avatar) ---------- */
-.profile-orbit img.profile-photo {
-  width: 74%;
-  max-width: none;
-  height: auto;
-  aspect-ratio: 1;
-  border-radius: 999px;
-  object-fit: cover;
-  object-position: 50% 30%;
-  filter: none;
-  opacity: 1;
-  transform: none;
+@keyframes badgeSway {
+  0%, 100% { transform: translateX(-50%) rotate(-2deg); }
+  50% { transform: translateX(-50%) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-profile-badge,
+  .about-badge-lanyard {
+    animation: none;
+  }
+
+  .about-badge-card {
+    transition: none;
+  }
 }

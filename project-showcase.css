@@ -49,6 +49,11 @@
   background: var(--text-soft);
 }
 
+.project-status-progress::before {
+  background: #e5a53b;
+  box-shadow: 0 0 0 3px rgba(229, 165, 59, 0.14);
+}
+
 .project-showcase-card .project-card-footer {
   display: flex;
   flex-wrap: wrap;

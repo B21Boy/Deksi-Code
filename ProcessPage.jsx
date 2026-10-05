@@ -1,9 +1,9 @@
-import ContactActions from '../components/layout/ContactActions.jsx'
-import PageNav from '../components/layout/PageNav.jsx'
-import SocialLinks from '../components/ui/SocialLinks.jsx'
-import { workingProcessSteps } from '../data/process.js'
-import { currentYear } from '../data/site.js'
-import { useSectionCompanion } from '../hooks/useSectionCompanion.js'
+import ContactActions from './ContactActions.jsx'
+import PageNav from './PageNav.jsx'
+import SocialLinks from './SocialLinks.jsx'
+import { workingProcessSteps } from './process.js'
+import { currentYear } from './site.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
 
 export default function ProcessPage({ theme, onToggleTheme, nav }) {
   const sectionRef = useSectionCompanion('focused')

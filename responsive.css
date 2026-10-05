@@ -29,7 +29,6 @@
   }
 
   .hero-grid {
-    grid-template-columns: 1fr;
     padding: 68px 0 42px;
   }
 
@@ -131,7 +130,7 @@
   }
 
   .visual-wrap {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .process-hero {
@@ -197,19 +196,8 @@
     min-height: 0;
   }
 
-  .profile-orbit {
-    display: grid;
+  .about-profile-badge {
     width: min(100%, 286px);
-    aspect-ratio: 1;
-    opacity: 1;
-  }
-
-  .profile-orbit img {
-    display: block;
-    width: 100%;
-    max-width: 286px;
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .about-section {

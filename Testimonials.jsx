@@ -1,7 +1,7 @@
-import { hasPlaceholders, visibleTestimonials } from '../../data/testimonials.js'
-import { useCompanion } from '../../context/CompanionContext.jsx'
-import OrbitCardStack from '../ui/OrbitCardStack.jsx'
-import { useSectionCompanion } from '../../hooks/useSectionCompanion.js'
+import { hasPlaceholders, visibleTestimonials } from './testimonials.js'
+import { useCompanion } from './useCompanion.js'
+import OrbitCardStack from './OrbitCardStack.jsx'
+import { useSectionCompanion } from './useSectionCompanion.js'
 
 export default function Testimonials() {
   const sectionRef = useSectionCompanion('attentive')

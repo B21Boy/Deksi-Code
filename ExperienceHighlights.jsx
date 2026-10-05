@@ -1,5 +1,5 @@
-import { experienceCards } from '../../data/experience.js'
-import { useSectionCompanion } from '../../hooks/useSectionCompanion.js'
+import { experienceCards } from './experience.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
 
 function ExperienceCard({ card }) {
   return (

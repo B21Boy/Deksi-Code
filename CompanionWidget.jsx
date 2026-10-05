@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useCompanion } from '../../context/CompanionContext.jsx'
+import { useCompanion } from './useCompanion.js'
 import Deksiyos from './Deksiyos.jsx'
 
 function prefersReducedMotion() {

@@ -1,13 +1,13 @@
-import SiteNav from '../components/layout/SiteNav.jsx'
-import About from '../components/sections/About.jsx'
-import Contact from '../components/sections/Contact.jsx'
-import ExperienceHighlights from '../components/sections/ExperienceHighlights.jsx'
-import FeaturedProjects from '../components/sections/FeaturedProjects.jsx'
-import Hero from '../components/sections/Hero.jsx'
-import Languages from '../components/sections/Languages.jsx'
-import Resume from '../components/sections/Resume.jsx'
-import Skills from '../components/sections/Skills.jsx'
-import Testimonials from '../components/sections/Testimonials.jsx'
+import SiteNav from './SiteNav.jsx'
+import About from './About.jsx'
+import Contact from './Contact.jsx'
+import ExperienceHighlights from './ExperienceHighlights.jsx'
+import FeaturedProjects from './FeaturedProjects.jsx'
+import Hero from './Hero.jsx'
+import Languages from './Languages.jsx'
+import Resume from './Resume.jsx'
+import Skills from './Skills.jsx'
+import Testimonials from './Testimonials.jsx'
 
 export default function HomePage({ theme, onToggleTheme, nav }) {
   return (

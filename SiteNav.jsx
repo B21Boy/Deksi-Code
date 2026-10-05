@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
-import { getNavHref, navItems } from '../../data/navigation.js'
-import { site } from '../../data/site.js'
+import { getNavHref, navItems } from './navigation.js'
+import { site } from './site.js'
 import HamburgerButton from './HamburgerButton.jsx'
 import MobileMenu from './MobileMenu.jsx'
 import ThemeToggle from './ThemeToggle.jsx'

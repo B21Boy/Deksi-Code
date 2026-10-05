@@ -1,7 +1,7 @@
-import { projectCards } from '../../data/projects.js'
-import { useSectionCompanion } from '../../hooks/useSectionCompanion.js'
-import { loadProjectsPage } from '../../routes.js'
-import ProjectCard from '../projects/ProjectCard.jsx'
+import { projectCards } from './projects.js'
+import { useSectionCompanion } from './useSectionCompanion.js'
+import { loadProjectsPage } from './routes.js'
+import ProjectCard from './ProjectCard.jsx'
 
 export default function FeaturedProjects({ nav }) {
   const sectionRef = useSectionCompanion('proud')
@@ -18,7 +18,7 @@ export default function FeaturedProjects({ nav }) {
 
       <div className="projects-grid">
         {projectCards.map((project) => (
-          <ProjectCard project={project} key={project.title} />
+          <ProjectCard project={project} nav={nav} key={project.title} />
         ))}
       </div>
 

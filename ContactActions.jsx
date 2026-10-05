@@ -1,4 +1,4 @@
-import { site } from '../../data/site.js'
+import { site } from './site.js'
 
 export default function ContactActions() {
   return (

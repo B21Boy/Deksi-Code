@@ -15,6 +15,7 @@ export function useSiteNavigation(route, navigate) {
     return {
       goHome: goTo('/'),
       goProjects: goTo('/projects'),
+      goProject: (slug) => goTo(`/projects?project=${encodeURIComponent(slug)}`),
       goProcess: goTo('/process'),
 
       select(item, event) {

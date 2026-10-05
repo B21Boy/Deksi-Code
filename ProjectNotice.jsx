@@ -1,14 +1,14 @@
 import { useRef } from 'react'
-import { site } from '../../data/site.js'
-import { useModal } from '../../hooks/useModal.js'
+import { site } from './site.js'
+import { useModal } from './useModal.js'
 
-export default function ProjectNotice({ project, onClose }) {
+export default function ProjectNotice({ project, onClose, onBrowseScreens }) {
   const dialogRef = useRef(null)
 
   useModal(dialogRef, onClose)
 
   const demoHref = `mailto:${site.email}?subject=${encodeURIComponent(
-    `Demo request: ${project.title}`,
+    `Walkthrough request: ${project.title}`,
   )}`
 
   return (
@@ -29,17 +29,22 @@ export default function ProjectNotice({ project, onClose }) {
         </span>
 
         <p className="section-kicker">{project.title}</p>
-        <h2 id="notice-title">Runs on a local server</h2>
+        <h2 id="notice-title">No live demo is available yet</h2>
         <p className="notice-text" id="notice-text">
           {project.notice}
         </p>
         <p className="notice-hint">
-          Want to see it in action? Get in touch and I'll walk you through it.
+          This project currently runs locally. Browse the screenshots or request a guided walkthrough.
         </p>
 
         <div className="notice-actions">
-          <a className="notice-action notice-action-primary" href={demoHref}>
-            Request a demo <span aria-hidden="true">↗</span>
+          {onBrowseScreens && (
+            <button className="notice-action notice-action-primary" type="button" onClick={onBrowseScreens}>
+              Browse screenshots <span aria-hidden="true">→</span>
+            </button>
+          )}
+          <a className="notice-action" href={demoHref}>
+            Request a walkthrough <span aria-hidden="true">↗</span>
           </a>
           <button className="notice-action" type="button" onClick={onClose}>
             Close
