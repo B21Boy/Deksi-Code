@@ -1,0 +1,110 @@
+/* Contact footer */
+
+.contact-footer {
+  margin-inline: calc(clamp(24px, 5vw, 76px) * -1);
+  border-top: 1px solid var(--border);
+}
+
+.contact-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(36px, 7vw, 96px);
+  align-items: center;
+  min-height: 360px;
+  padding: clamp(64px, 9vw, 112px) clamp(24px, 10vw, 156px);
+}
+
+.contact-panel h2 {
+  margin: 0;
+  color: var(--text-strong);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 5.8vw, 5.1rem);
+  font-style: italic;
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.contact-panel h2 span {
+  display: block;
+}
+
+.contact-actions {
+  display: grid;
+  gap: 18px;
+  min-width: min(100vw, 320px);
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--text-strong);
+  background: var(--control-bg);
+  font-size: clamp(0.9rem, 1.05vw, 1.04rem);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.contact-button svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.contact-button:hover {
+  border-color: var(--text-soft);
+  background: var(--control-hover);
+  box-shadow: 0 0 36px var(--glow);
+  transform: translateY(-2px);
+}
+
+.contact-upwork {
+  border-color: rgba(92, 190, 68, 0.9);
+  color: #f5fff3;
+  background: #166b05;
+}
+
+.contact-upwork span {
+  color: #ceffc7;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.portfolio-shell[data-theme="light"] .contact-upwork {
+  color: #ffffff;
+  background: #168104;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 100px;
+  padding: 24px clamp(24px, 10vw, 156px);
+  border-top: 1px solid var(--border);
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+}

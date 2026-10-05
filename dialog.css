@@ -1,0 +1,126 @@
+/* Dialog (local-server notice) */
+
+.notice-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(4, 4, 4, 0.68);
+  backdrop-filter: blur(8px);
+  animation: noticeFade 180ms ease both;
+}
+
+.portfolio-shell[data-theme="light"] .notice-overlay {
+  background: rgba(238, 236, 230, 0.72);
+}
+
+.notice-dialog {
+  display: grid;
+  justify-items: start;
+  width: min(100%, 520px);
+  max-height: calc(100svh - 48px);
+  overflow-y: auto;
+  padding: clamp(26px, 4vw, 40px);
+  border: 1px solid var(--border-strong);
+  background: var(--page-bg);
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.5),
+    0 0 60px var(--glow);
+  animation: noticeRise 220ms ease both;
+}
+
+.notice-dialog .section-kicker {
+  margin: 22px 0 0;
+}
+
+.notice-dialog h2 {
+  margin: 12px 0 0;
+  color: var(--text-strong);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3.4vw, 2.2rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.notice-text {
+  margin: 18px 0 0;
+  color: var(--text-strong);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.notice-hint {
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.notice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.notice-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--control-bg);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.notice-action-primary {
+  border-color: var(--border-strong);
+  color: var(--text-strong);
+}
+
+.notice-action:hover,
+.notice-action:focus-visible {
+  border-color: var(--border-strong);
+  background: var(--control-hover);
+  box-shadow: 0 0 26px var(--glow);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+@keyframes noticeFade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes noticeRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notice-overlay,
+  .notice-dialog {
+    animation: none;
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deksipapa.vercel.app/sitemap.xml

@@ -1,0 +1,144 @@
+/* About Me section and profile visual */
+
+.visual-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
+
+.profile-orbit {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(230px, 24vw, 330px);
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--profile-bg);
+  box-shadow: var(--profile-shadow);
+  overflow: hidden;
+  animation: floatProfile 6s ease-in-out infinite;
+}
+
+.profile-orbit::before {
+  position: absolute;
+  inset: 13%;
+  content: "";
+  border: 1px solid var(--border);
+  border-radius: inherit;
+}
+
+.profile-orbit img {
+  width: 74%;
+  max-width: 300px;
+  filter: grayscale(1) contrast(1.08) brightness(0.92);
+  opacity: 0.94;
+  transform: translateY(8px);
+}
+
+.about-section {
+  margin-inline: calc(clamp(24px, 5vw, 76px) * -1);
+  padding: 42px clamp(24px, 5vw, 76px) 48px;
+  border-top: 1px solid var(--border);
+}
+
+.about-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.section-kicker {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 330px);
+  gap: clamp(40px, 7vw, 110px);
+  align-items: center;
+}
+
+.intro-copy {
+  display: grid;
+  gap: clamp(28px, 5vw, 58px);
+  max-width: 740px;
+  color: var(--text-about);
+  font-size: clamp(1.05rem, 1.8vw, 1.66rem);
+  line-height: 1.15;
+  text-align: left;
+}
+
+.intro-copy p {
+  margin: 0;
+}
+
+.intro-copy p:not(.intro-lead) {
+  max-width: 620px;
+  color: var(--text-about-secondary);
+  font-size: clamp(1rem, 1.45vw, 1.32rem);
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.social-link {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--control-bg);
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.social-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+.social-link:hover {
+  border-color: var(--border-strong);
+  color: var(--text-strong);
+  background: var(--control-hover);
+  transform: translateY(-3px);
+}
+
+@keyframes floatProfile {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+/* ---------- Portrait photo (About Me + mobile menu avatar) ---------- */
+.profile-orbit img.profile-photo {
+  width: 74%;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: 50% 30%;
+  filter: none;
+  opacity: 1;
+  transform: none;
+}

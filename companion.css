@@ -1,0 +1,320 @@
+/* ---------- Companion: Deksiyos, the portfolio's reacting character ---------- */
+
+.companion-dock {
+  position: fixed;
+  right: clamp(14px, 3vw, 28px);
+  bottom: clamp(14px, 3vw, 28px);
+  /* Above the local-server-notice and screenshot-gallery dialogs (120), so a
+     reaction stays visible while one is open, but below the full-screen mobile
+     menu (1000), which should take over the screen without the companion
+     peeking through it. */
+  z-index: 130;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.companion-decor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.companion-bubble {
+  max-width: 190px;
+  margin: 0;
+  padding: 9px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px 14px 3px 14px;
+  color: var(--text-strong);
+  background: var(--page-bg);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: right;
+  animation:
+    companionBubbleIn 260ms ease both,
+    companionBubbleOut 500ms ease 3800ms forwards;
+}
+
+.companion-stage {
+  position: relative;
+  width: clamp(84px, 11vw, 116px);
+  aspect-ratio: 160 / 180;
+}
+
+.companion-pop {
+  width: 100%;
+  height: 100%;
+  animation: companionPop 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.deksiyos-figure {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 16px 22px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 26px var(--glow));
+}
+
+.companion-dismiss {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--control-bg);
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.companion-dismiss:hover,
+.companion-dismiss:focus-visible {
+  color: var(--text-strong);
+  background: var(--control-hover);
+  box-shadow: 0 0 18px var(--glow);
+  outline: none;
+}
+
+.companion-reopen {
+  position: fixed;
+  right: clamp(14px, 3vw, 28px);
+  bottom: clamp(14px, 3vw, 28px);
+  z-index: 130;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--control-bg);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.companion-reopen:hover,
+.companion-reopen:focus-visible {
+  background: var(--control-hover);
+  box-shadow: 0 0 22px var(--glow);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ----- the character itself ----- */
+
+.dk-skin {
+  fill: #caa27a;
+}
+
+.dk-hair {
+  fill: #1c140f;
+}
+
+.dk-stubble {
+  fill: #1c140f;
+  opacity: 0.16;
+}
+
+.dk-earbud {
+  fill: #f2f2f2;
+  stroke: #b9b9b9;
+  stroke-width: 0.6;
+}
+
+.dk-torso {
+  fill: #191a1f;
+}
+
+.dk-hood-collar {
+  fill: #121317;
+}
+
+.dk-torso-seam {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1;
+  stroke-linecap: round;
+  opacity: 0.08;
+}
+
+.dk-strings {
+  stroke: #cfcfcf;
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: #cfcfcf;
+  opacity: 0.85;
+}
+
+.dk-watch-band {
+  fill: #101114;
+}
+
+.dk-watch-face {
+  fill: #00ff88;
+  filter: drop-shadow(0 0 3px rgba(0, 255, 136, 0.75));
+}
+
+.dk-head {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-box: fill-box;
+}
+
+.dk-eye {
+  fill: #f7f3ee;
+  stroke: #1c140f;
+  stroke-width: 1;
+}
+
+.dk-eye ellipse {
+  transition: ry 260ms ease;
+}
+
+.dk-pupil {
+  fill: #1c140f;
+  transition:
+    cx 140ms linear,
+    cy 140ms linear;
+}
+
+.dk-eyelid {
+  fill: #caa27a;
+  transform: scaleY(0);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.dk-eyelid[data-blink='true'] {
+  animation: dkBlink 180ms ease;
+}
+
+.dk-brow {
+  fill: none;
+  stroke: #1c140f;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  transition: d 260ms ease;
+}
+
+.dk-mouth-line {
+  fill: none;
+  stroke: #1c140f;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.dk-mouth-open {
+  fill: #3a2418;
+  stroke: #1c140f;
+  stroke-width: 1;
+}
+
+.dk-mouth-grin {
+  fill: #fbfaf7;
+  stroke: #1c140f;
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.dk-hand path {
+  fill: #191a1f;
+}
+
+.dk-hand circle {
+  fill: #caa27a;
+}
+
+.dk-hand-crease {
+  stroke: #a9835f;
+  stroke-width: 1;
+  stroke-linecap: round;
+  opacity: 0.7;
+}
+
+@keyframes companionBubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes companionBubbleOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes companionPop {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dkBlink {
+  0% {
+    transform: scaleY(0);
+  }
+  45% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@media (max-width: 560px) {
+  .companion-bubble {
+    max-width: 150px;
+    padding: 7px 11px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .companion-pop {
+    animation: none;
+  }
+
+  .companion-bubble {
+    animation: companionBubbleOut 1ms linear 3800ms forwards;
+  }
+
+  .dk-head,
+  .dk-pupil,
+  .dk-eye ellipse {
+    transition: none;
+  }
+
+  .dk-eyelid[data-blink='true'] {
+    animation: none;
+  }
+}

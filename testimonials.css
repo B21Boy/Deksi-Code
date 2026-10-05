@@ -1,0 +1,39 @@
+/* Testimonials section */
+
+.testimonials-section {
+  margin-inline: calc(clamp(24px, 5vw, 76px) * -1);
+  padding: clamp(54px, 8vw, 86px) clamp(24px, 5vw, 76px) clamp(40px, 6vw, 64px);
+  border-bottom: 1px solid var(--border);
+}
+
+.testimonials-header {
+  max-width: 660px;
+  margin-bottom: clamp(12px, 2vw, 24px);
+}
+
+.testimonials-header h2 {
+  max-width: 640px;
+  margin: 18px 0 0;
+  color: var(--text-strong);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.85rem, 3vw, 3rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+/* Let the fanned cards reach the screen edges instead of being cut inside the page padding. */
+.testimonials-section .orbit-stage {
+  width: calc(100% + clamp(24px, 5vw, 76px) * 2);
+  margin-inline: calc(clamp(24px, 5vw, 76px) * -1);
+}
+
+.testimonials-note {
+  max-width: 520px;
+  margin: 26px auto 0;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+}

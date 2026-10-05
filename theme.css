@@ -1,0 +1,100 @@
+/* Design tokens: dark and light themes, shell */
+
+.portfolio-shell {
+  --page-bg: #0b0b0b;
+  --soft-light-a: rgba(124, 124, 124, 0.16);
+  --soft-light-b: rgba(255, 255, 255, 0.07);
+  --glow: rgba(255, 255, 255, 0.08);
+  --text-strong: #ffffff;
+  --text-logo: #f7f7f7;
+  --text-main: rgba(244, 244, 244, 0.58);
+  --text-muted: rgba(235, 235, 235, 0.66);
+  --text-soft: rgba(235, 235, 235, 0.48);
+  --text-about: rgba(246, 246, 246, 0.78);
+  --text-about-secondary: rgba(246, 246, 246, 0.74);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.28);
+  --nav-bg: rgba(18, 18, 18, 0.48);
+  --control-bg: rgba(255, 255, 255, 0.03);
+  --control-hover: rgba(255, 255, 255, 0.08);
+  --profile-bg:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.15), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  --profile-shadow:
+    0 32px 92px rgba(0, 0, 0, 0.62),
+    0 0 70px rgba(255, 255, 255, 0.08);
+
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 30%, var(--soft-light-a), transparent 28rem),
+    radial-gradient(circle at 14% 82%, var(--soft-light-b), transparent 24rem),
+    var(--page-bg);
+  transition:
+    background 220ms ease,
+    color 220ms ease;
+}
+
+.portfolio-shell[data-theme="light"] {
+  --page-bg: #f5f3ee;
+  --soft-light-a: rgba(210, 178, 116, 0.2);
+  --soft-light-b: rgba(255, 255, 255, 0.9);
+  --glow: rgba(255, 255, 255, 0.72);
+  --text-strong: #111111;
+  --text-logo: #151515;
+  --text-main: rgba(17, 17, 17, 0.46);
+  --text-muted: rgba(17, 17, 17, 0.66);
+  --text-soft: rgba(17, 17, 17, 0.48);
+  --text-about: rgba(17, 17, 17, 0.82);
+  --text-about-secondary: rgba(17, 17, 17, 0.7);
+  --border: rgba(17, 17, 17, 0.12);
+  --border-strong: rgba(17, 17, 17, 0.24);
+  --nav-bg: rgba(255, 255, 255, 0.58);
+  --control-bg: rgba(255, 255, 255, 0.56);
+  --control-hover: rgba(17, 17, 17, 0.06);
+  --profile-bg:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.86), transparent 36%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(20, 20, 20, 0.06));
+  --profile-shadow:
+    0 32px 92px rgba(62, 53, 38, 0.18),
+    0 0 70px rgba(255, 255, 255, 0.6);
+}
+
+.process-route-shell {
+  --page-bg: #0d0d0d;
+  --text-strong: #ffffff;
+  --text-logo: #ffffff;
+  --text-main: rgba(255, 255, 255, 0.92);
+  --text-muted: #aaaaaa;
+  --text-soft: rgba(255, 255, 255, 0.48);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --control-bg: rgba(255, 255, 255, 0.035);
+  --control-hover: rgba(255, 255, 255, 0.08);
+  --glow: rgba(0, 255, 136, 0.16);
+
+  overflow: clip;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0, 255, 136, 0.07), transparent 24rem),
+    radial-gradient(circle at 8% 52%, rgba(255, 255, 255, 0.04), transparent 22rem),
+    #0d0d0d;
+}
+
+.portfolio-shell[data-theme="light"].process-route-shell {
+  --page-bg: #f5f3ee;
+  --text-strong: #111111;
+  --text-logo: #151515;
+  --text-main: rgba(17, 17, 17, 0.82);
+  --text-muted: rgba(17, 17, 17, 0.66);
+  --text-soft: rgba(17, 17, 17, 0.48);
+  --border: rgba(17, 17, 17, 0.12);
+  --border-strong: rgba(17, 17, 17, 0.24);
+  --control-bg: rgba(255, 255, 255, 0.56);
+  --control-hover: rgba(17, 17, 17, 0.06);
+  --glow: rgba(210, 178, 116, 0.16);
+
+  background:
+    radial-gradient(circle at 50% 0%, rgba(210, 178, 116, 0.08), transparent 24rem),
+    radial-gradient(circle at 8% 52%, rgba(255, 255, 255, 0.6), transparent 22rem),
+    #f5f3ee;
+}

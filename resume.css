@@ -1,0 +1,222 @@
+/* Resume: experience, education, certifications */
+
+/* ---------- Resume: experience, education, certifications ---------- */
+.resume-section {
+  margin-inline: calc(clamp(24px, 5vw, 76px) * -1);
+  padding: clamp(54px, 8vw, 86px) clamp(24px, 5vw, 76px) clamp(54px, 8vw, 82px);
+  border-top: 1px solid var(--border);
+}
+
+.resume-header {
+  max-width: 660px;
+  margin-bottom: clamp(32px, 4vw, 46px);
+}
+
+.resume-header h2 {
+  max-width: 640px;
+  margin: 18px 0 0;
+  color: var(--text-strong);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.85rem, 3vw, 3rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.resume-list {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.resume-group {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.3fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  padding: clamp(26px, 3.4vw, 40px) clamp(22px, 3vw, 34px);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.01);
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.portfolio-shell[data-theme="light"] .resume-group {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.resume-group:last-child {
+  border-bottom: 0;
+}
+
+.resume-group:hover {
+  background: var(--control-bg);
+  box-shadow: inset 0 0 0 1px var(--border-strong), 0 0 34px var(--glow);
+}
+
+.resume-label {
+  display: flex;
+  align-items: center;
+  align-self: start;
+  gap: 12px;
+  min-height: 30px;
+}
+
+.resume-label h3 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: clamp(1rem, 1.25vw, 1.22rem);
+  font-weight: 750;
+  line-height: 1.1;
+}
+
+.resume-entries {
+  display: grid;
+  gap: 30px;
+}
+
+.resume-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 18px;
+  min-height: 30px;
+}
+
+.resume-entry h4 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.resume-date {
+  padding: 6px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--control-bg);
+  font-size: 0.74rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.resume-org {
+  margin: 10px 0 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.resume-org span::before {
+  content: " – ";
+}
+
+.resume-points {
+  display: grid;
+  gap: 10px;
+  max-width: 720px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume-points li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.resume-points li::before {
+  position: absolute;
+  top: 0.62em;
+  left: 2px;
+  width: 7px;
+  height: 7px;
+  content: "";
+  border: 1px solid var(--text-soft);
+  border-radius: 999px;
+}
+
+.resume-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume-tags li {
+  padding: 7px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-strong);
+  background: var(--control-bg);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .resume-group {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .resume-group {
+    padding: 24px 18px;
+  }
+}
+
+/* ---------- Resume: multiple entries, credential id, credential link ---------- */
+.resume-entry + .resume-entry {
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+}
+
+.resume-credential {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.resume-credential span {
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-strong);
+  background: var(--control-bg);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.resume-link:hover {
+  background: var(--control-hover);
+  box-shadow: 0 0 26px var(--glow);
+  transform: translateY(-2px);
+}
