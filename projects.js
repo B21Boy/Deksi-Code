@@ -100,7 +100,7 @@ export const projectCards = [
       'A community marketplace for exchanging skills, with a public landing page, offer board, trade management, and messaging.',
     tags: ['Web Application', 'Marketplace'],
     preview: 'skillswap',
-    url: 'https://skillswap-drab-two.vercel.app',
+    url: 'https://skillswap-plat.vercel.app',
     imagesLayout: 'skillswap-grid',
     images: [skillSwapLanding, skillSwapBoard, skillSwapMessages, skillSwapTrades],
     screenTitles: ['Marketplace landing', 'Offer board', 'Messages', 'Trade management'],
