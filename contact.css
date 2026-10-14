@@ -31,8 +31,21 @@
 
 .contact-actions {
   display: grid;
-  gap: 18px;
-  min-width: min(100vw, 320px);
+  gap: 20px;
+  min-width: min(100vw, 340px);
+}
+
+.contact-method {
+  display: grid;
+  gap: 9px;
+}
+
+.contact-method-label {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .contact-button {
@@ -68,6 +81,12 @@
   background: var(--control-hover);
   box-shadow: 0 0 36px var(--glow);
   transform: translateY(-2px);
+}
+
+.contact-button-unavailable {
+  color: var(--text-muted);
+  border-style: dashed;
+  cursor: default;
 }
 
 .contact-upwork {
