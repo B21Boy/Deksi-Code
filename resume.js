@@ -8,7 +8,7 @@ export const resumeGroups = [
         title: 'Intern',
         meta: 'Sep 2025',
         org: 'Amhara Innovation and Technology Bureau',
-        detail: 'Bahir Dar, Ethiopia',
+        detail: 'Addis Ababa, Ethiopia',
         points: [
           'Participated in system design and development activities within a collaborative team environment.',
           'Contributed to real-world problem-solving tasks under the guidance of supervisors and mentors.',
@@ -25,8 +25,8 @@ export const resumeGroups = [
       {
         title: 'B.Sc. in Information Technology',
         meta: '2015 – 2018 E.C',
-        org: 'Bahir Dar University',
-        detail: 'Bahir Dar Institute of Technology · Undergraduate studies in information technology',
+        org: 'Addis Ababa University',
+        detail: 'Addis Ababa Institute of Technology · Undergraduate studies in information technology',
       },
     ],
   },
