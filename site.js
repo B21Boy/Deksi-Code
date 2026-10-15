@@ -13,7 +13,7 @@ export const site = {
   phoneNumbers: ['+251 960625242', '+251 902762879'],
   telegramUrl: 'https://t.me/Dekxaaa',
   upworkUrl: 'https://www.upwork.com',
-  location: 'Bahir Dar - Ethiopia',
+  location: 'Addis Ababa, Ethiopia',
   age: 22,
   cvPath: '/Deksiyos_Yismaw_CV.pdf',
   cvFileName: 'Deksiyos_Yismaw_CV.pdf',
