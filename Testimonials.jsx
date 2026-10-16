@@ -30,7 +30,11 @@ export default function Testimonials() {
         />
       ) : (
         <p className="testimonials-empty">
-          Client testimonials are being collected and will appear here once approved.
+          <strong>Testimonials are coming soon.</strong>
+          <span>
+            This section will show client and collaborator feedback once they have approved their
+            words for publication.
+          </span>
         </p>
       )}
 

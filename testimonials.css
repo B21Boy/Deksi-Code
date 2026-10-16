@@ -49,3 +49,15 @@
   line-height: 1.6;
   text-align: center;
 }
+
+.testimonials-empty strong,
+.testimonials-empty span {
+  display: block;
+}
+
+.testimonials-empty strong {
+  margin-bottom: 8px;
+  color: var(--text-strong);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+}

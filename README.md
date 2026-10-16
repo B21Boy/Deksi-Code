@@ -72,7 +72,7 @@ To add a link to a project, add a `url` to it in `src/data/projects.js` (project
 The Testimonials section (above Languages) shows the cards from `src/data/testimonials.js`. It ships with three **draft** cards (Selam Habtamu, Temesgen Teshome, Yafet Tilahun) marked `placeholder: true`. The wording was written as a starting point, not by these people:
 
 - The drafts appear while you run `npm run dev`, so you can see the design.
-- They are **hidden in the production build**, and the whole section disappears until a real testimonial exists, so draft text can never go live by accident.
+- They are **hidden in the production build** so draft text cannot appear as a real endorsement. The Testimonials section remains visible with a note that approved quotes are being collected.
 - Before publishing, send each person their draft (or ask for their own words). Once they agree, edit the text and delete `placeholder: true`.
 
 To add another testimonial, copy an entry, fill in `name`, `role`, `description` (the quote), `initials`, `stat` (a short tag such as the project) and a light `accent` colour, and leave out `placeholder`. For a photo, put the image in `public/testimonials/` and set `image: '/testimonials/name.jpg'`; the initials show if the image is missing. Only ask people for a testimonial they are happy to have published under their name.
