@@ -26,7 +26,7 @@ export const testimonials = [
     placeholder: true,
   },
   {
-    name: 'Temesgen Teshome',
+    name: 'Temesgen Worku',
     role: 'Final-Year Project Advisor, Addis Ababa University',
     description:
       'As his final-year project advisor, I watched Deksiyos work independently, take feedback seriously and turn ideas into working software.',

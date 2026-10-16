@@ -7,9 +7,6 @@ export default function Testimonials() {
   const sectionRef = useSectionCompanion('attentive')
   const { reactTo } = useCompanion()
 
-  // No visible testimonials (only samples in production): render nothing.
-  if (visibleTestimonials.length === 0) return null
-
   return (
     <section
       className="testimonials-section"
@@ -22,19 +19,25 @@ export default function Testimonials() {
         <h2 id="testimonials-title">What people say about working with me.</h2>
       </div>
 
-      <OrbitCardStack
-        items={visibleTestimonials}
-        defaultActiveIndex={Math.min(1, visibleTestimonials.length - 1)}
-        spread={190}
-        lift={40}
-        label="Testimonials"
-        onActiveChange={() => reactTo('attentive')}
-      />
+      {visibleTestimonials.length > 0 ? (
+        <OrbitCardStack
+          items={visibleTestimonials}
+          defaultActiveIndex={Math.min(1, visibleTestimonials.length - 1)}
+          spread={190}
+          lift={40}
+          label="Testimonials"
+          onActiveChange={() => reactTo('attentive')}
+        />
+      ) : (
+        <p className="testimonials-empty">
+          Client testimonials are being collected and will appear here once approved.
+        </p>
+      )}
 
       {hasPlaceholders && (
         <p className="testimonials-note">
-          Draft testimonials for design work, hidden in the production build. Get each person to
-          approve or rewrite theirs, then remove placeholder: true in src/data/testimonials.js.
+          Draft testimonials are shown for design work only. Get each person to approve or rewrite
+          theirs, then remove placeholder: true in testimonials.js.
         </p>
       )}
     </section>
