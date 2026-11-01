@@ -74,7 +74,7 @@ The Testimonials section (above Languages) shows the approved cards from `testim
 
 ### If the domain changes
 
-The production URL `https://deksidev-code.vercel.app` is configured in `index.html`, `site.js`, `robots.txt` and `sitemap.xml` (including their `public/` copies).
+The production URL `https://deksicode-vercel.app` is configured in `index.html`, `site.js`, `robots.txt` and `sitemap.xml` (including their `public/` copies).
 
 ## Performance
 
@@ -104,8 +104,8 @@ The home page, projects page and process page each have a descriptive title, sum
 
 Do these after the first deploy:
 
-1. Deploy the site and confirm `https://deksidev-code.vercel.app/robots.txt`, `/sitemap.xml`, `/projects` and `/process` load successfully.
-2. Add the site to **Google Search Console**, verify ownership, then submit `https://deksidev-code.vercel.app/sitemap.xml`.
+1. Deploy the site and confirm `https://deksicode-vercel.app/robots.txt`, `/sitemap.xml`, `/projects` and `/process` load successfully.
+2. Add the site to **Google Search Console**, verify ownership, then submit `https://deksicode-vercel.app/sitemap.xml`.
 3. Use URL Inspection for `/`, `/projects` and `/process`; review Google's rendered page and request indexing where available.
 4. Link to the site from your GitHub profile, LinkedIn, CV and relevant professional profiles.
 5. Preview the social card with the LinkedIn Post Inspector and Facebook Sharing Debugger.

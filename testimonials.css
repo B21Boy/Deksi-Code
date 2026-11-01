@@ -29,6 +29,27 @@
   margin-inline: calc(clamp(24px, 5vw, 76px) * -1);
 }
 
+/* Keep the active card prominent while leaving enough room for its neighbours. */
+.testimonials-section .orbit-stack {
+  --card-width: clamp(270px, 38vw, 360px);
+  --spread-scale: 0.78;
+}
+
+.testimonials-section .orbit-stage {
+  height: clamp(410px, 44vw, 470px);
+}
+
+@media (max-width: 700px) {
+  .testimonials-section .orbit-stack {
+    --card-width: min(310px, calc(100vw - 48px));
+    --spread-scale: 0.42;
+  }
+
+  .testimonials-section .orbit-stage {
+    height: 410px;
+  }
+}
+
 .testimonials-note {
   max-width: 520px;
   margin: 26px auto 0;
