@@ -1,11 +1,8 @@
 import { visibleTestimonials } from './testimonials.js'
-import { useCompanion } from './useCompanion.js'
-import OrbitCardStack from './OrbitCardStack.jsx'
 import { useSectionCompanion } from './useSectionCompanion.js'
 
 export default function Testimonials() {
   const sectionRef = useSectionCompanion('attentive')
-  const { reactTo } = useCompanion()
 
   return (
     <section
@@ -20,14 +17,34 @@ export default function Testimonials() {
       </div>
 
       {visibleTestimonials.length > 0 ? (
-        <OrbitCardStack
-          items={visibleTestimonials}
-          defaultActiveIndex={Math.min(1, visibleTestimonials.length - 1)}
-          spread={190}
-          lift={40}
-          label="Testimonials"
-          onActiveChange={() => reactTo('attentive')}
-        />
+        <div className="testimonials-grid">
+          {visibleTestimonials.map((testimonial) => (
+            <article
+              className="testimonial-card"
+              key={testimonial.name}
+              style={{ '--card-accent': testimonial.accent }}
+            >
+              <div className="testimonial-card-head">
+                <span
+                  className="testimonial-avatar"
+                  aria-hidden="true"
+                >
+                  {testimonial.initials}
+                </span>
+                <div className="testimonial-person">
+                  <h3>{testimonial.name}</h3>
+                  <p>{testimonial.role}</p>
+                </div>
+              </div>
+              <blockquote className="testimonial-quote">
+                <p>{testimonial.description}</p>
+              </blockquote>
+              <span className="testimonial-tag">
+                {testimonial.stat}
+              </span>
+            </article>
+          ))}
+        </div>
       ) : (
         <p className="testimonials-empty">
           <strong>Testimonials are coming soon.</strong>

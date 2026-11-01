@@ -23,30 +23,149 @@
   line-height: 1.08;
 }
 
-/* Let the fanned cards reach the screen edges instead of being cut inside the page padding. */
-.testimonials-section .orbit-stage {
-  width: calc(100% + clamp(24px, 5vw, 76px) * 2);
-  margin-inline: calc(clamp(24px, 5vw, 76px) * -1);
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(14px, 2vw, 24px);
 }
 
-/* Keep the active card prominent while leaving enough room for its neighbours. */
-.testimonials-section .orbit-stack {
-  --card-width: clamp(270px, 38vw, 360px);
-  --spread-scale: 0.78;
+.testimonial-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 300px;
+  padding: clamp(20px, 2.4vw, 30px);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at top right, color-mix(in srgb, var(--card-accent) 13%, transparent), transparent 62%),
+    var(--control-bg);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
 }
 
-.testimonials-section .orbit-stage {
-  height: clamp(410px, 44vw, 470px);
+.testimonial-card::before {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  width: 54px;
+  height: 3px;
+  content: "";
+  border-radius: 0 0 3px 3px;
+  background: var(--card-accent);
 }
 
-@media (max-width: 700px) {
-  .testimonials-section .orbit-stack {
-    --card-width: min(310px, calc(100vw - 48px));
-    --spread-scale: 0.42;
+.testimonial-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.testimonial-avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 65%, transparent);
+  border-radius: 50%;
+  color: var(--text-strong);
+  background: color-mix(in srgb, var(--card-accent) 22%, var(--page-bg));
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
+.testimonial-person {
+  min-width: 0;
+}
+
+.testimonial-person h3 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.testimonial-person p {
+  margin: 4px 0 0;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.testimonial-quote {
+  position: relative;
+  flex: 1;
+  margin: 24px 0;
+}
+
+.testimonial-quote::before {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--card-accent);
+  content: "“";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  line-height: 0.8;
+}
+
+.testimonial-quote p {
+  margin: 0;
+  color: var(--text-strong);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.18vw, 1.12rem);
+  font-style: italic;
+  line-height: 1.58;
+}
+
+.testimonial-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  max-width: 100%;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--page-bg);
+  font-size: 0.74rem;
+  line-height: 1.2;
+}
+
+.testimonial-tag::before {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  content: "";
+  border-radius: 50%;
+  background: var(--card-accent);
+}
+
+@media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .testimonials-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
   }
 
-  .testimonials-section .orbit-stage {
-    height: 410px;
+  .testimonial-card {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .testimonial-quote {
+    margin: 22px 0;
   }
 }
 
