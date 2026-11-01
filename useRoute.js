@@ -6,7 +6,9 @@ const ROUTES = {
   '/process': 'process',
 }
 
-export function getRoute(pathname = window.location.pathname) {
+export function getRoute(
+  pathname = typeof window === 'undefined' ? '/' : window.location.pathname,
+) {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
   return ROUTES[path] ?? 'home'
 }

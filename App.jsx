@@ -8,9 +8,11 @@ import { useTheme } from './useTheme.js'
 import HomePage from './HomePage.jsx'
 import { loadProcessPage, loadProjectsPage, ProcessPage, ProjectsPage } from './routes.js'
 
-export default function App() {
+export default function App({ prerenderRoute, prerenderPage: PrerenderPage } = {}) {
   const { theme, toggleTheme } = useTheme()
-  const { route, navigate } = useRoute()
+  const routeState = useRoute()
+  const route = prerenderRoute ?? routeState.route
+  const { navigate } = routeState
   const nav = useSiteNavigation(route, navigate)
 
   usePageMeta(route)
@@ -40,7 +42,9 @@ export default function App() {
         data-theme={theme}
       >
         <Suspense fallback={null}>
-          {route === 'process' ? (
+          {PrerenderPage ? (
+            <PrerenderPage {...page} />
+          ) : route === 'process' ? (
             <ProcessPage {...page} />
           ) : route === 'projects' ? (
             <ProjectsPage {...page} />

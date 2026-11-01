@@ -18,9 +18,9 @@ export default function About() {
       <div className="about-content">
         <div className="intro-copy">
           <p className="intro-lead">
-            Hi, I am Deksi! I'm a Flutter developer building apps for every
-            platform, with strong experience in full-stack web development
-            across both frontend and backend.
+            Hi, I am Deksi! I am a Flutter developer based in Addis Ababa,
+            Ethiopia, building apps for mobile and web, with experience in
+            full-stack development across frontend and backend.
           </p>
           <p>
             I focus on clean interfaces, reliable architecture, and

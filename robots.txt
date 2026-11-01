@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://deksipapa.vercel.app/sitemap.xml
+Sitemap: https://deksidev-code.vercel.app/sitemap.xml

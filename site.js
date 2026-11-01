@@ -5,15 +5,15 @@ export const site = {
   name: 'Deksiyos Yismaw',
   shortName: 'Deksi',
   // Canonical production URL. Keep in sync with index.html, public/robots.txt and public/sitemap.xml.
-  url: 'https://deksipapa.vercel.app',
-  title: 'Deksiyos Yismaw | Flutter and Full-Stack Developer',
+  url: 'https://deksidev-code.vercel.app',
+  title: 'Deksiyos Yismaw | Flutter & Full-Stack Developer in Ethiopia',
   description:
-    'Portfolio of Deksiyos Yismaw, an Information Technology graduate building Flutter apps and full-stack web products with React, Node.js and Firebase.',
+    'Deksiyos Yismaw is a Flutter and full-stack developer based in Addis Ababa, Ethiopia, building mobile apps and web products with React, Node.js, Firebase, PHP and MySQL.',
   email: 'deksiyos.yismaw@gmail.com',
   phoneNumbers: ['+251 960625242', '+251 902762879'],
   telegramUrl: 'https://t.me/Dekxaaa',
   upworkUrl: 'https://www.upwork.com',
-  location: 'Addis Ababa, Ethiopia',
+  location: 'Addis Ababa',
   age: 22,
   cvPath: '/Deksiyos_Yismaw_CV.pdf',
   cvFileName: 'Deksiyos_Yismaw_CV.pdf',
@@ -28,14 +28,16 @@ export const pages = {
   },
   projects: {
     path: '/projects',
-    title: `Projects | ${site.name}`,
+    title: `Web & Mobile App Projects | ${site.name}`,
     description:
-      'Projects by Deksiyos Yismaw: a Flutter pharmacy management app, a distance education platform and a PHP and MySQL honey shop.',
+      'Explore mobile and web projects by Deksiyos Yismaw, including a Flutter pharmacy management app, online marketplaces, a skills exchange platform and a PHP and MySQL honey shop.',
+    type: 'CollectionPage',
   },
   process: {
     path: '/process',
-    title: `Working Process | ${site.name}`,
+    title: `Web & App Development Process | ${site.name}`,
     description:
-      'How Deksiyos Yismaw works with clients: planning, design, development and launch, from the first conversation to a product ready for real users.',
+      'See how Addis Ababa developer Deksiyos Yismaw takes web and mobile app projects from planning and interface design through development, testing and launch.',
+    type: 'WebPage',
   },
 }

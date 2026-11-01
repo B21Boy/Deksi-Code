@@ -20,8 +20,8 @@ export default function ProcessPage({ theme, onToggleTheme, nav }) {
 
       <header className="process-hero">
         <p className="process-kicker">Process</p>
-        <h1>Working Process</h1>
-        <p>How I combine design and technology to create exceptional user experiences</p>
+        <h1>Web and app development process</h1>
+        <p>How Deksiyos Yismaw plans, designs, builds and launches web and mobile products.</p>
         <span className="idea-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24">
             <path d="M9 18h6M10 22h4M8.6 14.8A6.2 6.2 0 1 1 15.4 14c-.9.6-1.4 1.5-1.4 2.5h-4c0-.8-.5-1.3-1.4-1.7z" />

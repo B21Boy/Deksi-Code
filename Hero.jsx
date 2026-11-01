@@ -7,12 +7,8 @@ export default function Hero() {
     <div className="hero-grid" id="home" ref={sectionRef}>
       <div className="hero-copy">
         <h1>
-          <span>
-            Designing with <strong>Purpose,</strong>
-          </span>
-          <span>
-            Building with <strong>Webflow.</strong>
-          </span>
+          <span>Flutter &amp; Full-Stack</span>
+          <span>Developer in Ethiopia</span>
         </h1>
 
         <a className="cta-button" href="#contact">

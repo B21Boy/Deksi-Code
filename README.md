@@ -18,7 +18,8 @@ Requires Node.js `^20.19.0` or `>=22.12.0` (see `.nvmrc`).
 
 ```
 dportfolio/
-├─ index.html                 SEO metadata, Open Graph, JSON-LD, no-JS fallback
+├─ index.html                 SEO metadata, Open Graph, JSON-LD
+├─ generate-seo-pages.js      Server-renders route-specific production HTML
 ├─ vercel.json                Security headers, CSP, caching, route rewrites
 ├─ vite.config.js
 ├─ eslint.config.js
@@ -69,18 +70,11 @@ To add a link to a project, add a `url` to it in `src/data/projects.js` (project
 
 ### Adding testimonials
 
-The Testimonials section (above Languages) shows the cards from `src/data/testimonials.js`. It ships with three **draft** cards (Selam Habtamu, Temesgen Teshome, Yafet Tilahun) marked `placeholder: true`. The wording was written as a starting point, not by these people:
-
-- The drafts appear while you run `npm run dev`, so you can see the design.
-- They are **hidden in the production build** so draft text cannot appear as a real endorsement. The Testimonials section remains visible with a note that approved quotes are being collected.
-- Before publishing, send each person their draft (or ask for their own words). Once they agree, edit the text and delete `placeholder: true`.
-
-To add another testimonial, copy an entry, fill in `name`, `role`, `description` (the quote), `initials`, `stat` (a short tag such as the project) and a light `accent` colour, and leave out `placeholder`. For a photo, put the image in `public/testimonials/` and set `image: '/testimonials/name.jpg'`; the initials show if the image is missing. Only ask people for a testimonial they are happy to have published under their name.
+The Testimonials section (above Languages) shows the approved cards from `testimonials.js`. To add another testimonial, copy an entry and fill in `name`, `role`, `description` (the approved quote), `initials`, `stat` (a short tag such as the project) and a light `accent` colour. For a photo, put the image in `public/testimonials/` and set `image: '/testimonials/name.jpg'`; the initials show if the image is missing. Publish quotes only with the person's approval.
 
 ### If the domain changes
 
-The production URL `https://deksipapa.vercel.app` appears in four places. Search and replace it in:
-`index.html`, `public/robots.txt`, `public/sitemap.xml`, `src/data/site.js`.
+The production URL `https://deksidev-code.vercel.app` is configured in `index.html`, `site.js`, `robots.txt` and `sitemap.xml` (including their `public/` copies).
 
 ## Performance
 
@@ -106,15 +100,16 @@ After deploying, check the headers at <https://securityheaders.com> and <https:/
 
 ## SEO
 
-In place: unique title and description per page, canonical URLs, Open Graph and Twitter cards with a 1200x630 image, JSON-LD (`WebSite`, `ProfilePage`, `Person`), `robots.txt`, `sitemap.xml`, semantic headings, descriptive image alt text, a real 404 status for unknown URLs, a no-JavaScript fallback, and a web manifest.
+The home page, projects page and process page each have a descriptive title, summary, canonical URL, social metadata and structured data. The production build server-renders the full page content into route-specific HTML, then the browser hydrates it for interactive controls. This keeps the portfolio readable to visitors and crawlers that do not run JavaScript. `robots.txt`, `sitemap.xml` and the no-index 404 page are copied from `public/` into the production output.
 
 Do these after the first deploy:
 
-1. Add the site to **Google Search Console** and **Bing Webmaster Tools**, then submit `https://deksipapa.vercel.app/sitemap.xml`.
-2. Use "URL Inspection" to request indexing of `/`.
-3. Link to the site from your GitHub profile, LinkedIn, CV and Upwork profile. Backlinks are the strongest ranking signal you control.
-4. Preview the social card with the LinkedIn Post Inspector and the Facebook Sharing Debugger.
-5. Run Lighthouse (Chrome DevTools) and keep the scores green after each change.
+1. Deploy the site and confirm `https://deksidev-code.vercel.app/robots.txt`, `/sitemap.xml`, `/projects` and `/process` load successfully.
+2. Add the site to **Google Search Console**, verify ownership, then submit `https://deksidev-code.vercel.app/sitemap.xml`.
+3. Use URL Inspection for `/`, `/projects` and `/process`; review Google's rendered page and request indexing where available.
+4. Link to the site from your GitHub profile, LinkedIn, CV and relevant professional profiles.
+5. Preview the social card with the LinkedIn Post Inspector and Facebook Sharing Debugger.
+6. Check mobile usability and Core Web Vitals in Search Console after Google has collected enough data.
 
 No code can promise the first position on Google: ranking also depends on competition, backlinks and how often people search your name. This setup removes the technical obstacles.
 

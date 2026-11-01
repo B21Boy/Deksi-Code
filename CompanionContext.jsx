@@ -1,15 +1,26 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import { sectionOrder, states } from './deksiyosStates.js'
 import { CompanionContext } from './companion-context.js'
 
 const DISMISS_KEY = 'companion-dismissed'
 const REACTION_MS = 1400
+let dismissedInMemory = false
 
 function readDismissed() {
   try {
     return window.localStorage.getItem(DISMISS_KEY) === '1'
   } catch {
-    return false
+    // Keep the in-memory setting when browser storage is unavailable.
+  }
+  return dismissedInMemory
+}
+
+function subscribeToDismissed(callback) {
+  window.addEventListener('storage', callback)
+  window.addEventListener('companion-dismissed-change', callback)
+  return () => {
+    window.removeEventListener('storage', callback)
+    window.removeEventListener('companion-dismissed-change', callback)
   }
 }
 
@@ -21,7 +32,7 @@ export function CompanionProvider({ children }) {
   const [reaction, setReaction] = useState(null)
   const [blink, setBlink] = useState(false)
   const [pulse, setPulse] = useState(0)
-  const [dismissed, setDismissed] = useState(readDismissed)
+  const dismissed = useSyncExternalStore(subscribeToDismissed, readDismissed, () => false)
   const reactionTimer = useRef(null)
   const lastSection = useRef('neutral')
   // Which registered sections currently cover the viewport's center band. More
@@ -85,15 +96,14 @@ export function CompanionProvider({ children }) {
   }, [])
 
   const toggleDismissed = useCallback(() => {
-    setDismissed((current) => {
-      const next = !current
-      try {
-        window.localStorage.setItem(DISMISS_KEY, next ? '1' : '0')
-      } catch {
-        // Storage can be unavailable; the choice just won't persist this visit.
-      }
-      return next
-    })
+    const next = !readDismissed()
+    dismissedInMemory = next
+    try {
+      window.localStorage.setItem(DISMISS_KEY, next ? '1' : '0')
+    } catch {
+      // Storage can be unavailable; the choice just won't persist this visit.
+    }
+    window.dispatchEvent(new Event('companion-dismissed-change'))
   }, [])
 
   useEffect(() => () => window.clearTimeout(reactionTimer.current), [])

@@ -1,4 +1,4 @@
-import { hasPlaceholders, visibleTestimonials } from './testimonials.js'
+import { visibleTestimonials } from './testimonials.js'
 import { useCompanion } from './useCompanion.js'
 import OrbitCardStack from './OrbitCardStack.jsx'
 import { useSectionCompanion } from './useSectionCompanion.js'
@@ -35,13 +35,6 @@ export default function Testimonials() {
             This section will show client and collaborator feedback once they have approved their
             words for publication.
           </span>
-        </p>
-      )}
-
-      {hasPlaceholders && (
-        <p className="testimonials-note">
-          Draft testimonials are shown for design work only. Get each person to approve or rewrite
-          theirs, then remove placeholder: true in testimonials.js.
         </p>
       )}
     </section>

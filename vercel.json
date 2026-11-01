@@ -4,11 +4,11 @@
   "rewrites": [
     {
       "source": "/projects",
-      "destination": "/index.html"
+      "destination": "/projects/index.html"
     },
     {
       "source": "/process",
-      "destination": "/index.html"
+      "destination": "/process/index.html"
     }
   ],
   "headers": [

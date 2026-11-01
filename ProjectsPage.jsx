@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useSyncExternalStore } from 'react'
 import ContactActions from './ContactActions.jsx'
 import PageNav from './PageNav.jsx'
 import ProjectGallery from './ProjectGallery.jsx'
@@ -9,18 +9,28 @@ import { showcaseProjects } from './projects.js'
 import { currentYear } from './site.js'
 import { useSectionCompanion } from './useSectionCompanion.js'
 
+function getQueryProject() {
+  const slug = new URLSearchParams(window.location.search).get('project')
+  return showcaseProjects.find((project) => project.slug === slug) || null
+}
+
+function subscribeToQuery(callback) {
+  window.addEventListener('popstate', callback)
+  return () => window.removeEventListener('popstate', callback)
+}
+
 export default function ProjectsPage({ theme, onToggleTheme, nav }) {
-  const [activeProject, setActiveProject] = useState(() => {
-    const slug = new URLSearchParams(window.location.search).get('project')
-    return showcaseProjects.find((project) => project.slug === slug) || null
-  })
+  const queryProject = useSyncExternalStore(subscribeToQuery, getQueryProject, () => null)
+  const [selectedProject, setSelectedProject] = useState(undefined)
+  const activeProject = selectedProject === undefined ? queryProject : selectedProject
   const [showProjectScreens, setShowProjectScreens] = useState(false)
+
   const openProject = useCallback((project) => {
-    setActiveProject(project)
+    setSelectedProject(project)
     setShowProjectScreens(false)
   }, [])
   const closeProject = useCallback(() => {
-    setActiveProject(null)
+    setSelectedProject(null)
     setShowProjectScreens(false)
   }, [])
   const sectionRef = useSectionCompanion('proud')
@@ -36,13 +46,13 @@ export default function ProjectsPage({ theme, onToggleTheme, nav }) {
       />
 
       <header className="projects-hero">
-        <h1>Showcasing my talent and passion</h1>
+        <h1>Web and mobile app projects</h1>
         <span className="projects-idea-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24">
             <path d="M9 18h6M10 22h4M8.6 14.8A6.2 6.2 0 1 1 15.4 14c-.9.6-1.4 1.5-1.4 2.5h-4c0-.8-.5-1.3-1.4-1.7z" />
           </svg>
         </span>
-        <p>Discover my skills and creativity in action, with just one click.</p>
+        <p>Explore Flutter apps and full-stack web products built by Deksiyos Yismaw.</p>
       </header>
 
       <section className="all-projects-grid all-projects-showcase" aria-label="Project gallery">
