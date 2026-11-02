@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://deksicode-vercel.app/</loc>
+    <loc>https://deksicode-dev.vercel.app/</loc>
   </url>
   <url>
-    <loc>https://deksicode-vercel.app/projects</loc>
+    <loc>https://deksicode-dev.vercel.app/projects</loc>
   </url>
   <url>
-    <loc>https://deksicode-vercel.app/process</loc>
+    <loc>https://deksicode-dev.vercel.app/process</loc>
   </url>
 </urlset>

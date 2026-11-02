@@ -5,7 +5,7 @@ export const site = {
   name: 'Deksiyos Yismaw',
   shortName: 'Deksi',
   // Canonical production URL. Keep in sync with index.html, public/robots.txt and public/sitemap.xml.
-  url: 'https://deksicode-vercel.app',
+  url: 'https://deksicode-dev.vercel.app',
   title: 'Deksiyos Yismaw | Flutter & Full-Stack Developer in Ethiopia',
   description:
     'Deksiyos Yismaw is a Flutter and full-stack developer based in Addis Ababa, Ethiopia, building mobile apps and web products with React, Node.js, Firebase, PHP and MySQL.',
